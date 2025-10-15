@@ -65,7 +65,7 @@ const App = () => {
   const [errorMessage,setErrorMessage] = useState(null)
 
   useEffect(()=>{
-    axios.get("http://localhost:3001/api/persons")
+    axios.get("/api/persons")
     .then(response => {
       setPersons(response.data)
     })
@@ -130,7 +130,6 @@ const addName = (event) => {
 
 
 const deletePerson = (person) =>{
-
   personService.deletePerson(person.id)
   .then(status => {
     setPersons(persons.filter(p => p.id !== person.id))
