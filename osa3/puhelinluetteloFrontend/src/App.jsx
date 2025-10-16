@@ -124,6 +124,12 @@ const addName = (event) => {
       setNewName('')
       setNewNumber('')
     })
+    .catch(error => {
+      setErrorMessage(JSON.stringify(error.response.data))
+      setTimeout(() => {
+        setErrorMessage(null)
+      },3000)
+    })
   }
   
 }
